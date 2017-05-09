@@ -1,0 +1,32 @@
+{
+  "name": "D-Check-API",
+  "version": "1.0.0",
+  "description": "D-Check Rest API",
+  "scripts": {
+    "start": "supervisor ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kairias97/d_check_api.git"
+  },
+  "author": "Kevin Irias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kairias97/d_check_api/issues"
+  },
+  "homepage": "https://github.com/kairias97/d_check_api#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.6",
+    "express": "^4.15.2",
+    "express-rate-limit": "^2.6.0",
+    "http": "0.0.0",
+    "massive": "^2.6.0",
+    "morgan": "^1.8.1",
+    "path": "^0.12.7",
+    "supervisor": "^0.12.0"
+  }
+}

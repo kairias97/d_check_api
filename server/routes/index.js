@@ -17,6 +17,9 @@ let indexRoute = router.get('/',(req,res)=>{
 router.use('/administrators', require('./administrators'));
 router.use('/identificationCategories', require('./idCategories'));
 router.use('/patients-register', require('./patientRegistrations'));
+router.use('/doctors-register', require('./doctorRegistrations'));
+router.use('/auth-patient', require('./authPatient'));
+router.use('/auth-doctor', require('./authDoctor'));
 //router.use('/modules', auth, require('./modules'));
 
 

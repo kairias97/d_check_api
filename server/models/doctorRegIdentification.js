@@ -1,7 +1,7 @@
 'use strict';
 let connection = require('../../db_connection');
 var db = connection.db;
-exports.getAllDoctorIdentifications = ()=> {
+exports.getAllDoctorRegIdentifications = ()=> {
   return new Promise((resolve, reject)=> {
       db.identificacion_registro_doctor.find({},(err, result)=> {
         if(err){
@@ -11,7 +11,7 @@ exports.getAllDoctorIdentifications = ()=> {
       })
   });
 };
-exports.getDoctorIdentification = (idIdentificacionDoctor)=> {
+exports.getDoctorRegIdentification = (idIdentificacionDoctor)=> {
   return new Promise((resolve, reject)=> {
       db.identificacion_registro_doctor.find({id: idIdentificacionDoctor, id_registro_doctor: idDoctor},(err, result)=> {
         if(err){
@@ -21,9 +21,9 @@ exports.getDoctorIdentification = (idIdentificacionDoctor)=> {
       })
   });
 };
-exports.deleteDoctorIdentification = (idDoctor, idIdentificacionDoctor)=> {
+exports.deleteAllDoctorRegIdentification = (idDoctor)=> {
   return new Promise((resolve, reject)=> {
-      db.identificacion_registro_doctor.destroy({id: idIdentificacionDoctor, id_registro_doctor: idDoctor},(err, result)=> {
+      db.identificacion_registro_doctor.destroy({id_registro_doctor: idDoctor},(err, result)=> {
         if(err){
           return reject(err);
         }
@@ -31,7 +31,7 @@ exports.deleteDoctorIdentification = (idDoctor, idIdentificacionDoctor)=> {
       })
   });
 };
-exports.saveDoctorIdentification = (identificacionDoctor)=> {
+exports.saveDoctorRegIdentification = (identificacionDoctor)=> {
   return new Promise((resolve, reject)=> {
       db.identificacion_registro_doctor.insert(identificacionDoctor,(err, result)=> {
         if(err){
@@ -41,7 +41,7 @@ exports.saveDoctorIdentification = (identificacionDoctor)=> {
       })
   });
 };
-exports.updateDoctorIdentification = (identificacionDoctor)=> {
+exports.updateDoctorRegIdentification = (identificacionDoctor)=> {
   return new Promise((resolve, reject)=> {
       db.identificacion_registro_doctor.update(identificacionDoctor,(err, result)=> {
         if(err){

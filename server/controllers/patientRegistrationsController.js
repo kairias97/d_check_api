@@ -4,7 +4,7 @@ let PatientRegistration = require('../models/patientRegistration');
 let PatientRegistrationId = require('../models/patientRegIdentification');
 let Patient = require('../models/patient');
 let PatientId = require('../models/patientIdentification');
-
+let MailHelper = require('../helpers/emailHelper');
 exports.getAllPatientRegistrations = function(req, res, next){
 	PatientRegistration.getAllPatientRegistrations()
 		.then(result => {
@@ -17,6 +17,7 @@ exports.getAllPatientRegistrations = function(req, res, next){
 exports.savePatientRegistration = function(req, res, next){
 	let patientSubmitted = req.body;
   let identifications = patientSubmitted.identificaciones.slice();
+  let savedPatientReg = {};
   delete patientSubmitted.identificaciones;
 	PatientRegistration.savePatientRegistration(patientSubmitted)
 		.then(result => {
@@ -27,7 +28,12 @@ exports.savePatientRegistration = function(req, res, next){
     		PatientRegistrationId.savePatientRegIdentification(identifications)
           .then(resultArray => {
             result.identificaciones = resultArray;
-            return res.json(result);
+            savedPatientReg = Object.assign({}, result);
+            return MailHelper.sendEmail("mydchecksupp@gmail.com",
+                "Nuevo paciente registrado", "Se ha recibido una nueva solicitud de registro de paciente en la plataforma.");
+          })
+          .then((info)=> {
+            return res.json(savedPatientReg);
           })
   		})
   		.catch(err => {

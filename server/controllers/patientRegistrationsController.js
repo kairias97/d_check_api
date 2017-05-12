@@ -5,6 +5,7 @@ let PatientRegistrationId = require('../models/patientRegIdentification');
 let Patient = require('../models/patient');
 let PatientId = require('../models/patientIdentification');
 let MailHelper = require('../helpers/emailHelper');
+
 exports.getAllPatientRegistrations = function(req, res, next){
 	PatientRegistration.getAllPatientRegistrations()
 		.then(result => {

@@ -51,3 +51,13 @@ exports.updatePatient = (paciente)=> {
       })
   });
 };
+exports.getPatientCount = (id_paciente)=> {
+  return new Promise((resolve, reject)=> {
+    db.getPatientCount([id_paciente], (err, result)=> {
+      if(err){
+        return reject(err);
+      }
+      return resolve(result);
+    });
+  });
+};

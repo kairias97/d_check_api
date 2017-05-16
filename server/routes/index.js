@@ -20,6 +20,8 @@ router.use('/patients-register', require('./patientRegistrations'));
 router.use('/doctors-register', require('./doctorRegistrations'));
 router.use('/auth-patient', require('./authPatient'));
 router.use('/auth-doctor', require('./authDoctor'));
+router.use('/patients', require('./patient'));
+router.use('/doctors', require('./doctor'));
 //router.use('/modules', auth, require('./modules'));
 
 

@@ -51,3 +51,13 @@ exports.updateDoctor = (doctor)=> {
       })
   });
 };
+exports.getDoctorCount = (id_doctor)=> {
+  return new Promise((resolve, reject)=> {
+    db.getDoctorCount([id_doctor], (err, result)=> {
+      if(err){
+        return reject(err);
+      }
+      return resolve(result);
+    });
+  });
+};

@@ -1,5 +1,5 @@
 SELECT 
-	id id_paciente, 
+	CAST(id AS INT) id_paciente, 
     nombres, 
     apellidos, 
     correo,

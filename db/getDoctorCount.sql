@@ -7,13 +7,13 @@ SELECT
     (SELECT COUNT(doc.*) FROM documento as doc WHERE aprobado = true AND doc.id_doctor = d.id) count_doc_aprobados,
     (SELECT COUNT(doc.*) FROM documento as doc WHERE aprobado = false AND doc.id_doctor = d.id) count_doc_rechazados,
     (SELECT COUNT(sv.*) FROM solicitud_virtual as sv 
-     where sv.id_doctor = d.id AND sv.cancelada IS NULL AND sv.aceptada IS NULL) count_consulta_pendiente,
+     where sv.id_doctor = d.id AND sv.cancelada IS NULL AND sv.aceptada IS NULL) count_virtual_pendiente,
      (SELECT COUNT(sv.*) FROM solicitud_virtual as sv 
-     where sv.id_doctor = d.id AND sv.cancelada IS NULL AND sv.aceptada = false) count_consulta_rechazada,
+     where sv.id_doctor = d.id AND sv.cancelada IS NULL AND sv.aceptada = false) count_virtual_rechazado,
      (SELECT COUNT(sv.*) FROM solicitud_virtual as sv 
-     where sv.id_doctor = d.id AND sv.cancelada IS NULL AND sv.aceptada = true) count_consulta_aceptada,
+     where sv.id_doctor = d.id AND sv.cancelada IS NULL AND sv.aceptada = true) count_virtual_aceptado,
      (SELECT COUNT(sv.*) FROM solicitud_virtual as sv 
-     where sv.id_doctor = d.id AND sv.cancelada = true AND sv.aceptada IS NULL) count_consulta_cancelada,
+     where sv.id_doctor = d.id AND sv.cancelada = true AND sv.aceptada IS NULL) count_virtual_cancelado,
      (SELECT COUNT(sv.*) FROM solicitud_presencial as sv 
      where sv.id_paciente = d.id AND sv.cancelada IS NULL AND sv.aceptada IS NULL) count_normal_pendiente,
      (SELECT COUNT(sv.*) FROM solicitud_presencial as sv 

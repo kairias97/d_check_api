@@ -9,9 +9,9 @@ SELECT
     p.celular,
     p.altura,
     p.peso,
-    ip.id id_identificacion_paciente,
+    CAST(ip.id AS INT) id_identificacion_paciente,
     ip.codigo_identificacion,
-    ci.id id_categoria_identificacion,
+    CAST(ci.id AS INT) id_categoria_identificacion,
   	ci.nombre_categoria_identificacion
 FROM paciente as p
 JOIN identificacion_paciente ip ON p.id = ip.id_paciente

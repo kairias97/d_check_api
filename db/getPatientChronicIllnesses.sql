@@ -1,7 +1,7 @@
 SELECT 
-	efp.id id_enfermedad_cronica_paciente,
-    efp.id_paciente,
-    ec.id id_categoria_enfermedad_cronica,
+	CAST(efp.id AS INT) id_enfermedad_cronica_paciente,
+    CAST(efp.id_paciente AS INT),
+    CAST(ec.id AS INT) id_categoria_enfermedad_cronica,
     ec.nombre_enfermedad nombre_enfermedad_cronica
 FROM enfermedad_cronica_paciente efp
 JOIN enfermedad_cronica ec ON efp.id_enfermedad_cronica = ec.id

@@ -32,3 +32,13 @@ exports.getPatientAllergies = function(req, res, next){
 			next(err);
 		});
 };
+exports.getPatientIllnesses = function(req, res, next){
+	let id_paciente = req.params.patientId;
+	Patient.getPatientIllnesses(id_paciente)
+		.then((result)=>{
+			return res.json(result);
+		})
+		.catch((err)=> {
+			next(err);
+		});
+};

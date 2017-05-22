@@ -82,3 +82,13 @@ exports.getPatientAllergies = (id_paciente)=> {
     });
   });
 };
+exports.getPatientIllnesses = (id_paciente)=> {
+  return new Promise((resolve, reject)=> {
+    db.getPatientChronicIllnesses([id_paciente], (err, result)=> {
+      if(err){
+        return reject(err);
+      }
+      return resolve(result);
+    });
+  });
+};

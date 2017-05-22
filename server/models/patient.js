@@ -71,4 +71,14 @@ exports.getPatientProfile = (id_paciente)=> {
       return resolve(result);
     });
   });
-}
+};
+exports.getPatientAllergies = (id_paciente)=> {
+  return new Promise((resolve, reject)=> {
+    db.getPatientAllergies([id_paciente], (err, result)=> {
+      if(err){
+        return reject(err);
+      }
+      return resolve(result);
+    });
+  });
+};

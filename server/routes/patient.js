@@ -5,4 +5,6 @@ router.route('/:patientId/count')
 	.get(patientController.getPatientCount);
 router.route('/:patientId/profile')
 	.get(patientController.getPatientProfile);
+router.route('/:patientId/allergies')
+	.get(patientController.getPatientAllergies);
 module.exports = router;

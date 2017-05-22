@@ -9,4 +9,6 @@ router.route('/:patientId/allergies')
 	.get(patientController.getPatientAllergies);
 router.route('/:patientId/chronicIllnesses')
 	.get(patientController.getPatientIllnesses);
+	router.route('/:patientId/virtualChecks')
+	.get(patientController.getPatientVirtualChecks);
 module.exports = router;

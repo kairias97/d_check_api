@@ -92,3 +92,13 @@ exports.getPatientIllnesses = (id_paciente)=> {
     });
   });
 };
+exports.getPatientVirtualChecks = (id_paciente)=> {
+  return new Promise((resolve, reject)=> {
+    db.getPatientVirtualChecks([id_paciente], (err, result)=> {
+      if(err){
+        return reject(err);
+      }
+      return resolve(result);
+    });
+  });
+};

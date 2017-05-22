@@ -42,3 +42,13 @@ exports.getPatientIllnesses = function(req, res, next){
 			next(err);
 		});
 };
+exports.getPatientVirtualChecks = function(req, res, next){
+	let id_paciente = req.params.patientId;
+	Patient.getPatientVirtualChecks(id_paciente)
+		.then((result)=>{
+			return res.json(result);
+		})
+		.catch((err)=> {
+			next(err);
+		});
+};

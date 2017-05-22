@@ -20,5 +20,5 @@ SELECT
      (SELECT COUNT(sv.*) FROM solicitud_presencial as sv 
      where sv.id_paciente = p.id AND sv.cancelada = true AND sv.aceptada IS NULL) count_normal_cancelado
     FROM public.paciente as p
-    WHERE id = $1
+    WHERE p.id = $1
 GROUP BY id, nombres, apellidos, correo

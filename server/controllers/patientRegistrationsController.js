@@ -98,6 +98,11 @@ exports.acceptPatientRegistration = function(req, res, next){
       })
       .then((activatedIds)=> {
         acceptedPatient.identificaciones = activatedIds;
+        return MailHelper.sendEmail(acceptedPatient.correo,
+                "Cuenta aceptada ", "Su cuenta ha sido activiada con exito.");
+        
+      })
+      .then(()=>{
         return res.json(acceptedPatient);
       })
       .catch(err => {

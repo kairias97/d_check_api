@@ -22,6 +22,7 @@ router.use('/auth-patient', require('./authPatient'));
 router.use('/auth-doctor', require('./authDoctor'));
 router.use('/patients', require('./patient'));
 router.use('/doctors', require('./doctor'));
+router.use('/tips', require('./tips'));
 //router.use('/modules', auth, require('./modules'));
 
 
